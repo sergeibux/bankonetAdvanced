@@ -1,5 +1,7 @@
 package main.java.com.CESI.accessingdatamysql;
 
+
+import org.springframework.data.repository.CrudRepository;
 import main.java.com.CESI.accessingdatamysql.Client;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
