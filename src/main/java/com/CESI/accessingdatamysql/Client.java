@@ -11,9 +11,9 @@ public class Client {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer Identifiant;
 
-    private String nom;
+    private String Nom;
 
-    private String prenom;
+    private String Prenom;
 
     public Integer getId() {
         return Identifiant;
@@ -24,18 +24,18 @@ public class Client {
     }
 
     public String get_nom() {
-        return nom;
+        return Nom;
     }
 
     public void set_nom(String name) {
-        this.nom = name;
+        this.Nom = name;
     }
 
     public String get_prenom() {
-        return prenom;
+        return Prenom;
     }
 
     public void set_prenom(String prenom) {
-        this.prenom = prenom;
+        this.Prenom = prenom;
     }
 }
