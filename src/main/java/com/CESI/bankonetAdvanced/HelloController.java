@@ -1,3 +1,5 @@
+package com.CESI.bankonetAdvanced;
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
