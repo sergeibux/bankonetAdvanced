@@ -11,9 +11,9 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class BankonetAdvancedApplication {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		SpringApplication.run(BankonetAdvancedApplication.class, args);
-	}
+	}*/
 
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
