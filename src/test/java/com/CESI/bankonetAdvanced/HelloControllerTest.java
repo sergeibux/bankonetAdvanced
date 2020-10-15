@@ -1,7 +1,5 @@
-package com.CESI.bankonetAdvanced;
+package test.java.com.CESI.bankonetAdvanced;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -17,16 +15,15 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class BankonetAdvancedApplicationTests {
+public class HelloControllerTest {
 
-	@Autowired
-	private MockMvc mvc;
-	
-	@Test
-	public void getToto() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/toto").accept(MediaType.APPLICATION_JSON))
-			.andExpect(status().isOk())
-			.andExpect(content().string(equalTo("toto")));
-	}
+    @Autowired
+    private MockMvc mvc;
 
+    @Test
+    public void getToto() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/toto").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(equalTo("toto")));
+    }
 }
