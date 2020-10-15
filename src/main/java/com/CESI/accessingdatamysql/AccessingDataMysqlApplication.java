@@ -1,4 +1,4 @@
-package main.java.com.CESI.accessingdatamysql;
+package com.CESI.accessingdatamysql;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

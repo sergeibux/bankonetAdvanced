@@ -2,11 +2,11 @@ package com.CESI.accessingdatamysql;
 
 
 import org.springframework.data.repository.CrudRepository;
-import com.CESI.accessingdatamysql.Client;
+import com.CESI.accessingdatamysql.CompteCourant;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 
-public interface ClientRepository extends CrudRepository<Client, Integer> {
+public interface CompteCourantRepository extends CrudRepository<CompteCourant, Integer> {
 
 }
