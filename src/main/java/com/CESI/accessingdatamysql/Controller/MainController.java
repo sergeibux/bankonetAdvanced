@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-import java.util.Optional;
+import java.util.*;
 
 import javax.persistence.*;
 
@@ -33,10 +33,9 @@ public class MainController {
         // @RequestParam means it is a parameter from the GET or POST request
 
         Client n = new Client();
-        n.set_nom(nom);
-        n.set_prenom(prenom);
-        ClientRepository.save(n);
-        return "Saved";
+        if (n.saveClient(nom, prenom, ClientRepository)) {
+            return "Saved";
+        }else return "Error";
     }
 
     @GetMapping(path="/all")
@@ -65,10 +64,10 @@ public class MainController {
         return  ClientRepository.findById(id);
     }
 
-    /*@GetMapping (path="/GetCompteByClient")
+    @GetMapping (path="/GetCompteByClient")
     public @ResponseBody List<CompteCourant> GetCompteByClient(@RequestParam int id) {
-        Optional<Client> client = ClientRepository.findById(id);
-        List<CompteCourant> compteCourants = client.;
-        return compteCourants;
-    }*/
+        Optional<Client> optClient = ClientRepository.findById(id);
+        Client client = optClient.get();
+        return (List<CompteCourant>) client.getCompteCourant();
+    }
 }

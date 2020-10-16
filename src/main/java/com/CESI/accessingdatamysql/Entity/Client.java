@@ -1,5 +1,7 @@
 package main.java.com.CESI.accessingdatamysql.Entity;
 
+import main.java.com.CESI.accessingdatamysql.Repository.ClientRepository;
+
 import java.util.List;
 import java.util.ArrayList;
 import javax.persistence.Entity;
@@ -60,5 +62,16 @@ public class Client {
 
     public List<CompteEpargne> getCourantEpargne() {
         return CompteEpargne;
+    }
+
+    public boolean saveClient(String nom, String prenom, ClientRepository ClientRepository) {
+        try {
+            this.Nom = nom;
+            this.Prenom = prenom;
+            ClientRepository.save(this);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
     }
 }
