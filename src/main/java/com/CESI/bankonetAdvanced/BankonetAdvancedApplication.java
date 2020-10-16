@@ -1,4 +1,4 @@
-package com.CESI.bankonetAdvanced;
+package main.java.com.CESI.bankonetAdvanced;
 
 import java.util.Arrays;
 

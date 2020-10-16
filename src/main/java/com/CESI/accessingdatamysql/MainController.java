@@ -1,4 +1,4 @@
-package com.CESI.accessingdatamysql;
+package main.java.com.CESI.accessingdatamysql;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,6 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+
+import java.io.Serializable;
+import java.util.Optional;
+import java.util.Random;
+
+import javax.persistence.*;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
@@ -46,8 +53,14 @@ public class MainController {
 
 
     @GetMapping(path="/compteEpargne")
-    public @ResponseBody Iterable<CompteCourant> getAllCptEpargne() {
+    public @ResponseBody Iterable<CompteEpargne> getAllCptEpargne() {
         // This returns a JSON or XML with the users
         return CompteEpargneRepository.findAll();
+    }
+
+
+    @GetMapping (path="/GetClientById")
+    public @ResponseBody Optional<Client> GetClientById(@RequestParam int id) {
+        return  ClientRepository.findById(id);
     }
 }

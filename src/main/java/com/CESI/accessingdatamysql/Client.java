@@ -1,4 +1,4 @@
-package com.CESI.accessingdatamysql;
+package main.java.com.CESI.accessingdatamysql;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
