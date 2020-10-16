@@ -46,7 +46,7 @@ public class MainController {
 
 
     @GetMapping(path="/compteEpargne")
-    public @ResponseBody Iterable<CompteCourant> getAllCptEpargne() {
+    public @ResponseBody Iterable<CompteEpargne> getAllCptEpargne() {
         // This returns a JSON or XML with the users
         return CompteEpargneRepository.findAll();
     }
