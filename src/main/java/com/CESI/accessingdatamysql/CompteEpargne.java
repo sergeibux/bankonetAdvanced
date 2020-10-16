@@ -1,4 +1,4 @@
-package com.CESI.accessingdatamysql;
+package main.java.com.CESI.accessingdatamysql;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +15,7 @@ public class CompteEpargne {
 
     private String Intitule;
     
-    private float Solde;
+    private double Solde;
 
     public Integer getId() {
         return Identifiant;
@@ -43,7 +43,7 @@ public class CompteEpargne {
     }
 
 
-    public float get_solde() {
+    public double get_solde() {
         return Solde;
     }
 

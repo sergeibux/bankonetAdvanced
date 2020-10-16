@@ -1,9 +1,10 @@
-package com.CESI.accessingdatamysql;
+package main.java.com.CESI.accessingdatamysql;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class Client {
@@ -14,9 +15,17 @@ public class Client {
     private String Nom;
 
     private String Prenom;
+<<<<<<< HEAD
     
     private CompteCourant CompteCourant;
     
+=======
+
+    @OneToOne
+    private CompteCourant CompteCourant;
+
+    @OneToOne
+>>>>>>> ba7d4d6b7fbf76120453255b040b416444c16856
     private CompteEpargne CompteEpargne;
 
     public Integer getId() {
