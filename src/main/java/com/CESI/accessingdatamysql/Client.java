@@ -1,5 +1,7 @@
 package main.java.com.CESI.accessingdatamysql;
 
+import java.util.List;
+import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,11 +18,11 @@ public class Client {
 
     private String Prenom;
 
-    @OneToOne
-    private CompteCourant CompteCourant;
+    @OneToMany(targetEntity=CompteCourant.class, mappedBy="Identifiant" )
+    private List<CompteCourant> CompteCourant = new ArrayList<>();
 
-    @OneToOne
-    private CompteEpargne CompteEpargne;
+    @OneToMany(targetEntity=CompteEpargne.class, mappedBy="Identifiant" )
+    private List<CompteEpargne> CompteEpargne = new ArrayList<>();
 
     public Integer getId() {
         return Identifiant;
@@ -46,11 +48,11 @@ public class Client {
         this.Prenom = prenom;
     }
 
-    public CompteCourant getCompteCourant() {
+    public List<CompteCourant> getCompteCourant() {
         return CompteCourant;
     }
 
-    public CompteEpargne getCourantEpargne() {
+    public List<CompteEpargne> getCourantEpargne() {
         return CompteEpargne;
     }
 }
