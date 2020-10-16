@@ -15,17 +15,11 @@ public class Client {
     private String Nom;
 
     private String Prenom;
-<<<<<<< HEAD
-    
-    private CompteCourant CompteCourant;
-    
-=======
 
     @OneToOne
     private CompteCourant CompteCourant;
 
     @OneToOne
->>>>>>> ba7d4d6b7fbf76120453255b040b416444c16856
     private CompteEpargne CompteEpargne;
 
     public Integer getId() {
