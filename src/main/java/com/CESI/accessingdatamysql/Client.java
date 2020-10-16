@@ -15,9 +15,9 @@ public class Client {
 
     private String Prenom;
     
-    private Integer CompteCourant;
+    private CompteCourant CompteCourant;
     
-    private Integer CompteEpargne;
+    private CompteEpargne CompteEpargne;
 
     public Integer getId() {
         return Identifiant;
@@ -43,11 +43,11 @@ public class Client {
         this.Prenom = prenom;
     }
 
-    public Integer getCompteCourant() {
+    public CompteCourant getCompteCourant() {
         return CompteCourant;
     }
 
-    public Integer getCourantEpargne() {
+    public CompteEpargne getCourantEpargne() {
         return CompteEpargne;
     }
 }
