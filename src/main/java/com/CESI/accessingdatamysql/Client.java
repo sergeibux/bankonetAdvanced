@@ -14,6 +14,10 @@ public class Client {
     private String Nom;
 
     private String Prenom;
+    
+    private Integer CompteCourant;
+    
+    private Integer CompteEpargne;
 
     public Integer getId() {
         return Identifiant;
@@ -37,5 +41,13 @@ public class Client {
 
     public void set_prenom(String prenom) {
         this.Prenom = prenom;
+    }
+
+    public Integer getCompteCourant() {
+        return CompteCourant;
+    }
+
+    public Integer getCourantEpargne() {
+        return CompteEpargne;
     }
 }
