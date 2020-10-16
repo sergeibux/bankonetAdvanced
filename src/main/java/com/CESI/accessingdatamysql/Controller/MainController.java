@@ -80,13 +80,13 @@ public class MainController {
         }else return "Error";
     }
 
-    @RequestMapping("/")
-    public String index() {
+    @GetMapping("/")
+    public @ResponseBody String index() {
         return "Greetings from Spring Boot!";
     }
 
-    @RequestMapping("/toto")
-    public String toto() {
+    @GetMapping("/toto")
+    public @ResponseBody String toto() {
         return "toto";
     }
 }
