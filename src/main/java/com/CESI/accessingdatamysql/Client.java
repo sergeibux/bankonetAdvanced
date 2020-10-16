@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class Client {
@@ -14,10 +15,12 @@ public class Client {
     private String Nom;
 
     private String Prenom;
-    
-    private Integer CompteCourant;
-    
-    private Integer CompteEpargne;
+
+    @OneToOne
+    private CompteCourant CompteCourant;
+
+    @OneToOne
+    private CompteEpargne CompteEpargne;
 
     public Integer getId() {
         return Identifiant;
@@ -43,11 +46,11 @@ public class Client {
         this.Prenom = prenom;
     }
 
-    public Integer getCompteCourant() {
+    public CompteCourant getCompteCourant() {
         return CompteCourant;
     }
 
-    public Integer getCourantEpargne() {
+    public CompteEpargne getCourantEpargne() {
         return CompteEpargne;
     }
 }

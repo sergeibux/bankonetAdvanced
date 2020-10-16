@@ -15,7 +15,7 @@ public class CompteEpargne {
 
     private String Intitule;
     
-    private float Solde;
+    private double Solde;
 
     public Integer getId() {
         return Identifiant;
@@ -43,7 +43,7 @@ public class CompteEpargne {
     }
 
 
-    public float get_solde() {
+    public double get_solde() {
         return Solde;
     }
 
