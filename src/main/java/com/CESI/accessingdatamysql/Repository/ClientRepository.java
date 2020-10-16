@@ -1,6 +1,7 @@
-package main.java.com.CESI.accessingdatamysql;
+package main.java.com.CESI.accessingdatamysql.Repository;
 
 
+import main.java.com.CESI.accessingdatamysql.Entity.Client;
 import org.springframework.data.repository.CrudRepository;
 
 

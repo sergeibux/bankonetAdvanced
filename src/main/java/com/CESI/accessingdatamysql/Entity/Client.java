@@ -1,4 +1,4 @@
-package main.java.com.CESI.accessingdatamysql;
+package main.java.com.CESI.accessingdatamysql.Entity;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -22,13 +22,13 @@ public class Client {
     @JoinTable(name = "T_Compte_Courant_Client",
     joinColumns = @JoinColumn( name = "IdClient"),
     inverseJoinColumns = @JoinColumn( name = "IdCompteCourant"))
-    private List<CompteCourant> CompteCourant = new ArrayList<>();
+    private List<main.java.com.CESI.accessingdatamysql.Entity.CompteCourant> CompteCourant = new ArrayList<>();
 
     @OneToMany
     @JoinTable(name = "T_Compte_Epargne_Client",
     joinColumns = @JoinColumn( name = "IdClient"),
     inverseJoinColumns = @JoinColumn( name = "IdCompteEpargne"))
-    private List<CompteEpargne> CompteEpargne = new ArrayList<>();
+    private List<main.java.com.CESI.accessingdatamysql.Entity.CompteEpargne> CompteEpargne = new ArrayList<>();
 
     public Integer getId() {
         return IdClient;
