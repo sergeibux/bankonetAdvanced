@@ -1,37 +1,24 @@
 package main.java.com.CESI.accessingdatamysql;
 
-public class Compte {
+public abstract class Compte {
 
-    private String Numero;
+    protected String Numero;
 
-    private String Intitule;
+    protected String Intitule;
 
-    private double Solde;
+    protected double Solde;
 
-    public String get_numero() {
-        return Numero;
-    }
+    public abstract String get_numero();
 
-    public void set_numero(String Numero) {
-        this.Numero = Numero;
-    }
+    public abstract void set_numero(String Numero);
 
 
-    public String get_intitule() {
-        return Intitule;
-    }
+    public abstract String get_intitule();
 
-    public void set_intitule(String Intitule) {
-        this.Intitule = Intitule;
-    }
+    public abstract void set_intitule(String Intitule);
 
 
-    public double get_solde() {
-        return Solde;
-    }
+    public abstract double get_solde();
 
-    public void set_solde(float Solde) {
-        this.Solde = Solde;
-    }
-
+    public abstract void set_solde(float Solde);
 }

@@ -19,4 +19,30 @@ public class CompteEpargne extends Compte{
     public void setId(Integer id) {
         this.IdComteEpargne = id;
     }
+
+    public String get_numero() {
+        return Numero;
+    }
+
+    public void set_numero(String Numero) {
+        this.Numero = Numero;
+    }
+
+
+    public String get_intitule() {
+        return Intitule;
+    }
+
+    public void set_intitule(String Intitule) {
+        this.Intitule = Intitule;
+    }
+
+
+    public double get_solde() {
+        return Solde;
+    }
+
+    public void set_solde(float Solde) {
+        this.Solde = Solde;
+    }
 }

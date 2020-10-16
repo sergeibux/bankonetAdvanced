@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.io.Serializable;
 import java.util.Optional;
 import java.util.Random;
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.persistence.*;
 
@@ -63,4 +65,11 @@ public class MainController {
     public @ResponseBody Optional<Client> GetClientById(@RequestParam int id) {
         return  ClientRepository.findById(id);
     }
+
+    /*@GetMapping (path="/GetCompteByClient")
+    public @ResponseBody List<CompteCourant> GetCompteByClient(@RequestParam int id) {
+        Optional<Client> client = ClientRepository.findById(id);
+        List<CompteCourant> compteCourants = client.;
+        return compteCourants;
+    }*/
 }
