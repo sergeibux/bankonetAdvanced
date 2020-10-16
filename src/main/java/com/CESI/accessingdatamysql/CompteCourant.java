@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class CompteCourant {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer Identifiant;
+    private Integer IdComteCourant;
 
     private String Numero;
 
@@ -18,11 +18,11 @@ public class CompteCourant {
     private double Solde;
 
     public Integer getId() {
-        return Identifiant;
+        return IdComteCourant;
     }
 
     public void setId(Integer id) {
-        this.Identifiant = id;
+        this.IdComteCourant = id;
     }
 
     public String get_numero() {

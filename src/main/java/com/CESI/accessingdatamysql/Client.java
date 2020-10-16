@@ -12,24 +12,30 @@ import javax.persistence.*;
 public class Client {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer Identifiant;
+    private Integer IdClient;
 
     private String Nom;
 
     private String Prenom;
 
-    @OneToMany(targetEntity=CompteCourant.class, mappedBy="Identifiant" )
+    @OneToMany
+    @JoinTable(name = "T_Compte_Courant_Client",
+    joinColumns = @JoinColumn( name = "IdClient"),
+    inverseJoinColumns = @JoinColumn( name = "IdCompteCourant"))
     private List<CompteCourant> CompteCourant = new ArrayList<>();
 
-    @OneToMany(targetEntity=CompteEpargne.class, mappedBy="Identifiant" )
+    @OneToMany
+    @JoinTable(name = "T_Compte_Epargne_Client",
+    joinColumns = @JoinColumn( name = "IdClient"),
+    inverseJoinColumns = @JoinColumn( name = "IdCompteEpargne"))
     private List<CompteEpargne> CompteEpargne = new ArrayList<>();
 
     public Integer getId() {
-        return Identifiant;
+        return IdClient;
     }
 
     public void setId(Integer id) {
-        this.Identifiant = id;
+        this.IdClient = id;
     }
 
     public String get_nom() {
