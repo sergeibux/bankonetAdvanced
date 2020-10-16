@@ -3,6 +3,8 @@ package main.java.com.CESI.accessingdatamysql.Controller;
 import main.java.com.CESI.accessingdatamysql.Entity.Client;
 import main.java.com.CESI.accessingdatamysql.Entity.CompteCourant;
 import main.java.com.CESI.accessingdatamysql.Entity.CompteEpargne;
+import main.java.com.CESI.accessingdatamysql.Repository.ClientRepository;
+import main.java.com.CESI.accessingdatamysql.Repository.CompteCourantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -69,5 +71,12 @@ public class MainController {
         Optional<Client> optClient = ClientRepository.findById(id);
         Client client = optClient.get();
         return (List<CompteCourant>) client.getCompteCourant();
+    }
+    @GetMapping (path="/AddCompteClien")
+    public @ResponseBody String AddCompteClien(@RequestParam int id, @RequestParam Double decouvertAutorise, @RequestParam String intitule, @RequestParam Double solde, @RequestParam String numero) {
+        CompteCourant compteCourant = new CompteCourant();
+        if (compteCourant.createComtpe(decouvertAutorise, intitule, solde, numero, ClientRepository, CompteCourantRepository, id)) {
+            return "Saved";
+        }else return "Error";
     }
 }

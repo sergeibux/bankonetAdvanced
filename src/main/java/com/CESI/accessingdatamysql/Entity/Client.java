@@ -74,4 +74,8 @@ public class Client {
             return false;
         }
     }
+
+    public void addCompte (CompteCourant compteCourant){
+        this.CompteCourant.add(compteCourant);
+    }
 }
