@@ -72,11 +72,21 @@ public class MainController {
         Client client = optClient.get();
         return (List<CompteCourant>) client.getCompteCourant();
     }
-    @GetMapping (path="/AddCompteClien")
-    public @ResponseBody String AddCompteClien(@RequestParam int id, @RequestParam Double decouvertAutorise, @RequestParam String intitule, @RequestParam Double solde, @RequestParam String numero) {
+    @GetMapping (path="/AddCompteCourantClien")
+    public @ResponseBody String AddCompteCourantClien(@RequestParam int id, @RequestParam Double decouvertAutorise, @RequestParam String intitule, @RequestParam Double solde, @RequestParam String numero) {
         CompteCourant compteCourant = new CompteCourant();
         if (compteCourant.createComtpe(decouvertAutorise, intitule, solde, numero, ClientRepository, CompteCourantRepository, id)) {
             return "Saved";
         }else return "Error";
+    }
+
+    @RequestMapping("/")
+    public String index() {
+        return "Greetings from Spring Boot!";
+    }
+
+    @RequestMapping("/toto")
+    public String toto() {
+        return "toto";
     }
 }
