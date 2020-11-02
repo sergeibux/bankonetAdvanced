@@ -1,4 +1,5 @@
-package com.CESI.accessingdatamysql.Controller;
+//package com.CESI.accessingdatamysql.Controller;
+package main.java.com.CESI.accessingdatamysql.Controller;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -24,8 +25,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 //@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 
-@RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
+@RunWith(SpringRunner.class)
 class BankonetAdvancedApplicationTests {
 
 	@Autowired
@@ -33,12 +34,12 @@ class BankonetAdvancedApplicationTests {
 	
 	@Test
 	public void getToto() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/demo").accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk())
-		.andExpect(content().string(equalTo("toto")));
-//		mvc.perform(MockMvcRequestBuilders.get("/demo/toto"));
+//		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
 //		.andExpect(status().isOk())
 //		.andExpect(content().string(equalTo("toto")));
+		mvc.perform(MockMvcRequestBuilders.get("/toto"))
+		.andExpect(status().isOk())
+		.andExpect(content().string(equalTo("toto")));
 	}
 
 }
