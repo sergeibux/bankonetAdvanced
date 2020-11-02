@@ -42,23 +42,22 @@ public class CompteCourant extends Compte {
 
         Optional<Client> client = clientRepository.findById(idClient);
         CompteCourant myCompte = CompteCourantRepository.save(this);
+        Client monClient ;
        if (client.isPresent()) {
- 
-            Client monClient = client.get();
+
+           monClient = client.get();
             monClient.addCompte(myCompte);
-            clientRepository.save(monClient);
-            return true;
         } else {
         	try {
-	        	Client monClient = new Client();
+	        	monClient = new Client();
 	        	monClient.saveClient(nomClient, prenomClient, clientRepository);
 	            monClient.addCompte(myCompte);
-	            clientRepository.save(monClient);
-	        	return true;
         	} catch (Exception e) {
         		return false;
         	}
         }
+        clientRepository.save(monClient);
+        return true;
     }
 
 	@Override

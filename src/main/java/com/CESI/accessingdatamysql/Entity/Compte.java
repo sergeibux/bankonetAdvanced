@@ -36,4 +36,6 @@ public abstract class Compte {
     public void set_solde(float Solde) {
         this.Solde = Solde;
     }
+
+
 }
