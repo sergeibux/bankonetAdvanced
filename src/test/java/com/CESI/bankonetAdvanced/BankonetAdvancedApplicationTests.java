@@ -18,13 +18,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 
-//@ExtendWith(SpringExtension.class)
-//@SpringBootTest
 
-//@WebMvcTest(bankonetAdvanced.class)
-
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-
+@SpringBootTest
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
 class BankonetAdvancedApplicationTests {
@@ -34,12 +29,24 @@ class BankonetAdvancedApplicationTests {
 	
 	@Test
 	public void getToto() throws Exception {
-//		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
-//		.andExpect(status().isOk())
-//		.andExpect(content().string(equalTo("toto")));
 		mvc.perform(MockMvcRequestBuilders.get("/toto"))
 		.andExpect(status().isOk())
 		.andExpect(content().string(equalTo("toto")));
 	}
+
+	@Test
+	public void getClient() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("/client/toString?id=0"))
+		.andExpect(status().isOk())
+		.andExpect(content().string(equalTo("Client [IdClient=0, Nom=me, Prenom=myself]")));
+	}
+
+	@Test
+	public void getCompteCourant() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("/compteCourant/toString?id=0"))
+		.andExpect(status().isOk())
+		.andExpect(content().string(equalTo("[CompteCourant [IdComteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdComteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdComteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdComteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdComteCourant=0, montantDecouvertAutorise=0.0]]")));
+	}
+	
 
 }
