@@ -1,6 +1,7 @@
 package main.java.com.CESI.accessingdatamysql.Controller;
 
 import main.java.com.CESI.accessingdatamysql.Entity.Client;
+import main.java.com.CESI.accessingdatamysql.Entity.Compte;
 import main.java.com.CESI.accessingdatamysql.Entity.CompteCourant;
 import main.java.com.CESI.accessingdatamysql.Entity.CompteEpargne;
 import main.java.com.CESI.accessingdatamysql.Repository.ClientRepository;
@@ -73,11 +74,14 @@ public class MainController {
         return (List<CompteCourant>) client.getCompteCourant();
     }
     @GetMapping (path="/AddCompteCourantClient")
-    public @ResponseBody String AddCompteCourantClien(@RequestParam int id, @RequestParam Double decouvertAutorise, @RequestParam String intitule, @RequestParam Double solde, @RequestParam String numero, @RequestParam String nomClient, @RequestParam String prenomClient) {
+    public @ResponseBody String AddCompteCourantClien(@RequestParam int idClient, @RequestParam Double decouvertAutorise, @RequestParam String intitule, @RequestParam Double solde, @RequestParam String numero) {
         CompteCourant compteCourant = new CompteCourant();
-        if (compteCourant.createCompte(decouvertAutorise, intitule, solde, numero, ClientRepository, CompteCourantRepository, id, nomClient, prenomClient)) {
+        int idCompteCourant = compteCourant.createCompte(decouvertAutorise, intitule, solde, numero, ClientRepository, CompteCourantRepository);
+        if (affectCompteCourantClient(idClient, idCompteCourant)){
             return "Saved";
-        }else return "Error";
+        }else {
+            return "Error";
+        }
     }
 
     @GetMapping("/")
@@ -105,7 +109,7 @@ public class MainController {
     }
 
     @GetMapping("/compteCourant/crediter")
-    public @ResponseBody String CreditCompte(@RequestParam double montant, @RequestParam int id){
+    public @ResponseBody String CreditCompteCourant(@RequestParam double montant, @RequestParam int id){
         Optional<CompteCourant> optCompteCourant = CompteCourantRepository.findById(id);
         if (optCompteCourant.isPresent()){
             CompteCourant compteCourant = optCompteCourant.get();
@@ -117,7 +121,7 @@ public class MainController {
     }
 
     @GetMapping("/compteEpargne/crediter")
-    public @ResponseBody String CreditCompte(@RequestParam double montant, @RequestParam int id){
+    public @ResponseBody String CreditCompteEpargne(@RequestParam double montant, @RequestParam int id){
         Optional<CompteEpargne> optCompteEpargne = CompteEpargneRepository.findById(id);
         if (optCompteEpargne.isPresent()){
             CompteEpargne compteEpargne = optCompteEpargne.get();
@@ -126,5 +130,21 @@ public class MainController {
         }else {
             return "Compte introuvable";
         }
+    }
+
+    public boolean affectCompteCourantClient(int idClient, int idComtpeCourant){
+        Optional<CompteCourant> optionalCompteCourant = CompteCourantRepository.findById(idComtpeCourant);
+        Optional<Client> client = ClientRepository.findById(idClient);
+        Client monClient ;
+        CompteCourant compteCourant;
+        if (client.isPresent() && optionalCompteCourant.isPresent()) {
+            compteCourant = optionalCompteCourant.get();
+            monClient = client.get();
+            monClient.addCompte(compteCourant);
+        } else {
+            return false;
+        }
+        ClientRepository.save(monClient);
+        return true;
     }
 }

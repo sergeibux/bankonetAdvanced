@@ -37,29 +37,15 @@ public class CompteCourant extends Compte {
         this.IdCompteCourant = id;
     }
 
-    public boolean createCompte(Double decouvertAutorise, String intitule, Double solde, String numero, ClientRepository clientRepository, CompteCourantRepository CompteCourantRepository, int idClient, String nomClient, String prenomClient) {
+    public int createCompte(Double decouvertAutorise, String intitule, Double solde, String numero, ClientRepository clientRepository, CompteCourantRepository CompteCourantRepository) {
         this.montantDecouvertAutorise = decouvertAutorise;
         this.Intitule = intitule;
         this.Solde = solde;
         this.Numero = numero;
 
-        Optional<Client> client = clientRepository.findById(idClient);
-        CompteCourant myCompte = CompteCourantRepository.save(this);
-        Client monClient ;
-        if (client.isPresent()) {
-           monClient = client.get();
-            monClient.addCompte(myCompte);
-        } else {
-        	try {
-	        	monClient = new Client();
-	        	monClient.saveClient(nomClient, prenomClient, clientRepository);
-	            monClient.addCompte(myCompte);
-        	} catch (Exception e) {
-        		return false;
-        	}
-        }
-        clientRepository.save(monClient);
-        return true;
+
+        CompteCourant monComtpe = CompteCourantRepository.save(this);
+        return monComtpe.getId();
     }
 
 	@Override

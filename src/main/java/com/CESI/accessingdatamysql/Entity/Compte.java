@@ -33,7 +33,7 @@ public abstract class Compte {
         return Solde;
     }
 
-    public void set_solde(float Solde) {
+    public void set_solde(double Solde) {
         this.Solde = Solde;
     }
 
@@ -42,5 +42,9 @@ public abstract class Compte {
       return this.Solde;
     }
 
-
+    /*public Compte(String numero, String intitule, double solde) {
+        this.Numero = numero;
+        this.Intitule = intitule;
+        this.Solde = solde;
+    }*/
 }
