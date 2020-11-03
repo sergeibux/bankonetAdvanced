@@ -37,5 +37,10 @@ public abstract class Compte {
         this.Solde = Solde;
     }
 
+    public double crediter(double montant ) {
+      this.Solde += montant;
+      return this.Solde;
+    }
+
 
 }

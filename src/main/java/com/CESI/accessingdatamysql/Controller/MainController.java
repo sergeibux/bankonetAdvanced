@@ -103,4 +103,28 @@ public class MainController {
         Client client = optClient.get();
         return client.toString();
     }
+
+    @GetMapping("/compteCourant/crediter")
+    public @ResponseBody String CreditCompte(@RequestParam double montant, @RequestParam int id){
+        Optional<CompteCourant> optCompteCourant = CompteCourantRepository.findById(id);
+        if (optCompteCourant.isPresent()){
+            CompteCourant compteCourant = optCompteCourant.get();
+            compteCourant.crediter(montant);
+            return "new solde : " + compteCourant.get_solde();
+        }else {
+            return "Compte introuvable";
+        }
+    }
+
+    @GetMapping("/compteEpargne/crediter")
+    public @ResponseBody String CreditCompte(@RequestParam double montant, @RequestParam int id){
+        Optional<CompteEpargne> optCompteEpargne = CompteEpargneRepository.findById(id);
+        if (optCompteEpargne.isPresent()){
+            CompteEpargne compteEpargne = optCompteEpargne.get();
+            compteEpargne.crediter(montant);
+            return "new solde : " + compteEpargne.get_solde();
+        }else {
+            return "Compte introuvable";
+        }
+    }
 }
