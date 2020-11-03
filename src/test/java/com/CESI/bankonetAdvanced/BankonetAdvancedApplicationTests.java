@@ -45,7 +45,7 @@ class BankonetAdvancedApplicationTests {
 	public void getCompteCourant() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/compteCourant/toString?id=0"))
 		.andExpect(status().isOk())
-		.andExpect(content().string(equalTo("[CompteCourant [IdComteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdComteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdComteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdComteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdComteCourant=0, montantDecouvertAutorise=0.0]]")));
+		.andExpect(content().string(equalTo("[CompteCourant [IdCompteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdCompteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdCompteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdCompteCourant=0, montantDecouvertAutorise=0.0], CompteCourant [IdCompteCourant=0, montantDecouvertAutorise=0.0]]")));
 	}
 	
 
