@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Optional;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity // This tells Hibernate to make a table out of this class
 public class CompteCourant extends Compte {
     @Id
@@ -26,6 +28,7 @@ public class CompteCourant extends Compte {
         this.montantDecouvertAutorise = montantDecouvertAutorise;
     }
 
+    @JsonIgnore
     public Integer getId() {
         return IdCompteCourant;
     }
